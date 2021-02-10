@@ -10,5 +10,6 @@ public class matching_heroEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		ExtraModuleNames.AddRange( new string[] { "matching_hero" } );
+		ExtraModuleNames.AddRange( new string[] { "matching_heroEd" } );
 	}
 }
