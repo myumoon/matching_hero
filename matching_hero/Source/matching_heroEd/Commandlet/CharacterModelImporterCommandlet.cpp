@@ -66,7 +66,7 @@ namespace {
 
 
 namespace {
-	constexpr const TCHAR* CharacterAssetDir = TEXT("/Game/Character/");
+	constexpr const TCHAR* CharacterAssetDir = TEXT("/Game/MatchingHero/Characters/");
 }
 
 struct UCharacterModelImporterCommandlet::ParsedParams {
@@ -282,7 +282,7 @@ USkeletalMesh* UCharacterModelImporterCommandlet::ImportFbx(const FString& fbxPa
 	importUIOption->OriginalImportType = EFBXImportType::FBXIT_SkeletalMesh;
 	importUIOption->bImportAsSkeletal = true;
 	importUIOption->bImportMesh = true;
-	importUIOption->Skeleton = Cast<USkeleton>(AssetRegistry->GetAssetByObjectPath(TEXT("/Game/Characters/Common/CharacterCommon_Skeleton.CharacterCommon_Skeleton")).GetAsset());
+	importUIOption->Skeleton = Cast<USkeleton>(AssetRegistry->GetAssetByObjectPath(TEXT("/Game/MatchingHero/Characters/Common/CharacterCommon_Skeleton.CharacterCommon_Skeleton")).GetAsset());
 	importUIOption->bCreatePhysicsAsset = false;
 	importUIOption->PhysicsAsset = nullptr;
 	importUIOption->bImportMaterials = false;
@@ -382,7 +382,7 @@ UMaterialInterface* UCharacterModelImporterCommandlet::MakeMaterialInstance(UTex
 {
 	UE_LOG(CharacterModelImporterCommandlet, Display, TEXT("%s"), *FString::Format(TEXT("Making material instance with {0}"), {tex->GetFName().ToString()}));
 	
-	const FString srcMaterialPath  = TEXT("/Game/Characters/Materials/CharacterMatInstBase");
+	const FString srcMaterialPath  = TEXT("/Game/MatchingHero/Characters/Materials/CharacterMatInstBase");
 
 	// 複製元が存在しなかったらエラー
 	if(!UEditorAssetLibrary::DoesAssetExist(srcMaterialPath)) {
@@ -475,7 +475,7 @@ UMaterialInterface* UCharacterModelImporterCommandlet::MakeMaterialInstance(UTex
 			return nullptr;
 		}
 
-		auto* createdObject = UEditorAssetLibrary::DuplicateAsset(TEXT("/Game/Characters/Materials/CharacterMat.CharacterMat"), TEXT("/Game/Characters/Materials/test.test"));
+		auto* createdObject = UEditorAssetLibrary::DuplicateAsset(TEXT("/Game/MatchingHero/Characters/Materials/CharacterMat.CharacterMat"), TEXT("/Game/MatchingHero/Characters/Materials/test.test"));
 		AssetRegistry->AssetCreated(createdObject);
 		UE_LOG(CharacterModelImporterCommandlet, Display, TEXT("%s"), *FString::Format(TEXT("Duplicate result createdObject({0})"), {createdObject?TEXT("true"):TEXT("false")}));
 

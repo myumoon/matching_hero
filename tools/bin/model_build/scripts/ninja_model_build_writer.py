@@ -75,7 +75,7 @@ def main():
 			fbxPath    = ply_path.makeRelativeFbxContentsPath(path)
 			#texPath = ply_path.makeRelativeTexContentsPath(path)
 			#destFbxPath = os.path.join("$res_root", "Content", "Characters", fbxPath)
-			destFbxPath = os.path.join("$res_dest", "Characters", fbxPath)
+			destFbxPath = os.path.join("$res_dest", "MatchingHero", "Characters", fbxPath)
 			inputPath   = os.path.join("$res_root", os.path.relpath(path, proj_def.ResRoot))
 			writer.build(outputs=[destFbxPath], rule="convert_ply", inputs=[inputPath], implicit=None)
 			fbxList.append(destFbxPath)
